@@ -3,5 +3,5 @@
 Today I Learned..
 
 ## 나의 각오
-
-매일 매일 복습하겠습니다.
+[BLOG](https://goat95.github.io/)
+매일 복습하고, 블로그에 정리하겠습니다.
