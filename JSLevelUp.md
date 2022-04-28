@@ -172,3 +172,68 @@ function toObject(a, b, c) {
 }
 console.log(toObject(...fruits)) // {a: "Apple", b: "Banana", c: "Cherry"}
 ```
+
+### 7. 불변성
+```javascript
+// 데이터 불변성(Immutability)
+// 원시 데이터: String, Number, Boolean, undefined, null
+// 한 번 메모리에 만들어지면 불변한다.
+let a = 1
+let b = 4
+console.log(a, b, a === b) // 1 4 false
+b = a
+console.log(a, b, a === b) // 1 1 true
+a = 7
+console.log(a, b, a === b) // 7 1 false
+let c = 1
+console.log(b, c, b === c) // 1 1 true
+
+// 참조형 데이터: Object, Array, Function
+// 같은 메모리를 바라보는 여러 변수가 있을 때 한 쪽 변수를 수정하게 되면
+// 다른 값에서 의도치 않게 바껴줘 있을 수 있다.
+let a = { k: 1 }
+let b = { k: 1 }
+console.log(a, b, a === b) // {k:1} {k:1} false
+a.k = 7
+b = a
+console.log(a, b, a === b) // {k:7} {k:7} true
+a.k = 2
+console.log(a, b, a === b) // {k:2} {k:2} true
+let c = b
+console.log(a, b, c, a === c) // {k:2} {k:2} {k:2} true
+a.k = 9
+console.log(a, b, c, a === c) // {k:9} {k:9} {k:9} true
+```
+
+### 8. 얕은 복사와 깊은 복사
+```javascript
+const user = {
+	name: 'Heropy',
+	age: 85,
+	emails: ['thesecon@gmail.com']
+}
+const copyUser = user
+console.log(copyUser === user) // true
+
+// 메모리 주소가 같기 때문에 user의 값을 바꾸면 copyUser 값도 바뀐다.
+user.age = 22
+console.log('user', user) // {name: "Heropy", age: 22, emails: Array(1)}
+console.log('copyUser', copyUser) // {name: "Heropy", age: 22, emails: Array(1)}
+
+// Object.assign() 을 통한 얕은  복사 
+const copyUser = Object.assign({}, user)
+console.log(copyUser === user) // false
+
+// 전개 연산자를 통한 얕은 복사
+const copyUser = {...user}
+console.log(copyUser === user) // false 
+
+// user 객체만 표면적으로 복사한거지 객체안에 또다른 참조데이터는 복사X
+user.emails.push('neo@zillinks.com')
+console.log(user.emails === copyUser.emails) // true
+
+// lodash 패키지를 통해 깊은 복사
+import _ from 'lodash'
+const copyUser = _.cloneDeep(user)
+console.log(user.emails === copyUser.emails) // false
+```
