@@ -64,3 +64,45 @@
 - Dynamic Routes - [slug] / [...slug] / [[...slug]]
 - Router - 직접 라우터를 조작 가능 push / shallow
 - API Routes - API 서버로의 동작 middlewares
+
+## 5. Next.js 실제
+
+- 제품으로서의 웹 - 실제 배포 전에 고려해야하는 점들
+- 번들 사이즈 - 번들 포비아 / Webpack analyzer
+- Deploy Vercel - Github와 연동
+- PR - 새로운 PR 생성시 Preview 제공
+
+---
+
+- 인증 - 클라이언트 사이드 / 서버 사이드
+- Testing - E2E testing / Unit testing
+- Preview / Dynamic Import - Headless CMS 초안 / 필요할 때 import
+- 기타 - Static Optimization / export / path alias
+
+---
+
+- AMP - 렌더링 속도를 극단적으로 높이는 방법
+- Babel - next/babel / plugins / presets
+- AST - 추상 구문 트리 / 소스코드를 트리로
+- PostCSS - Autoprefixer 등 / browserslist
+
+---
+
+- Custom - Server / App / Document / Error Page
+- src Directory - src/pages 가능 단, pages 가 없을 때
+- Multi zones - 여러개의 next app로 하나의 도메인 구성
+- 성능측정 - reportWebVitals(metric)
+
+---
+
+- 디버깅 - 실무에서 많이 쓰일 방법
+- 소스맵 - 배포된 코드와 원본의 연결
+- codemods - 코드 변경 도구
+- 기타 - int'l route / trace / react 18 / next 12
+
+---
+
+- Upgrade Guide - 최신인 12버전 까지
+- Cli / CNA - Next.js 다루는 간편 도구
+- 기타 - Router / Link / Image / Head / Server
+- next.config.js - Next.js 프로젝트 구성 커스텀
